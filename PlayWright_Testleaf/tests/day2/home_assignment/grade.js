@@ -2,7 +2,7 @@ function GradeforScore(score)
 {
     switch(true)
 {
-    case (score<100 && score>=80):
+    case (score<100 && score>=80):  //logical comparison will return true or false
         return "GradeA";
     break;
     case (score<80 && score>=60):

@@ -2,7 +2,7 @@ function NumberType(number)
 {
     if(number>0)
     {
-return "Number is Positive"
+    return "Number is Positive"
     }
     else if(number<0)
     {
