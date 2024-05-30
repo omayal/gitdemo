@@ -23,5 +23,3 @@ var hasplayWright
 console.log(hasplayWright);
 console.log("type of email is " + typeof(hasplayWright))
 
-
-

@@ -4,11 +4,7 @@ test(`To launch Browser`, async () =>{
     const browsercontext=await BrowserInstance.newContext();
     const page=await browsercontext.newPage();
     await page.goto("http://leaftaps.com/opentaps/control/main");
-    const title=await page.title()
-    console.log(`title of the page is ${title}`);
-    const url=page.url()
-    console.log(`url of the page is ${url}`)
-    await page.waitForTimeout(5000)
+    
 
     await page.close()
     await browsercontext.close()

@@ -1,0 +1,36 @@
+function 
+1)named function
+  ->function 
+  ->named function expression
+2)anonymous function
+   ->anosymous function expression
+      assigned to a variable instead of having a fucntion name 
+       function()
+       {
+       block
+       }
+      ->arrow function
+      shorter syntax
+      always anonymous
+         const arrowfunc= ()=>
+                            {
+                              blck;
+                            }
+              const arrowfunc= ()=>return a+b;
+              const arrow= (a,b)=>return a+b  //argumet can be passed
+              test ('  ', async ()=>{})
+
+    special categories
+    async function
+    callback function
+    IIFE(immediately invoked function)
+
+
+    object literal
+     user = 
+     {
+      id :44
+      name:omayal
+     }
+
+     user.name

@@ -48,15 +48,15 @@
 //     } 
 // }
 
-// console.log(modifiedCourseName);
+//console.log(modifiedCourseName);
 
-// let st="happy Learning Test Leaf"
-// let res=st.slice(2,10);
-// let substr=st.substring(2,10)
-// console.log(res)   //sub dtring and slice is doing the same
-// console.log(substr)
-// let splitonspce = st.split(" ");
-// console.log(splitonspce)
+let st="happy Learning Test Leaf"
+let res=st.slice(2,10);
+let substr=st.substring(2,10)
+console.log(res)   //sub dtring and slice is doing the same
+console.log(substr)
+let splitonspce = st.split(" ");
+console.log(splitonspce)
 
 
 

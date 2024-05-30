@@ -1,0 +1,67 @@
+waitforselector -wait for the selector to appear in the dom 
+
+selectors 
+instead of locators , we can use selectors
+
+fixtures
+setup:
+-peice of code -sets some context for your test
+helps to initialize the environment in which the test will run(make your environment isolated)
+provides a new incognito session
+Teardown:
+clean up all the resources
+
+browser fixure
+browser context fixture
+page fixture  ==>by default chromium browser will be launched , if we need different browser we need to write customized fixtures
+
+
+cusotmized fixtures are there , we will use the same set of steps again and again
+
+test(`Test to create a lead using page fixture`, async ({page,request}) => {  //can call more than one page fixture ||2nd one is API
+
+
+Handling drop Down:
+using selectors
+
+
+forbidOnly: !!process.env.CI  =>when its true ,  test.only('testname',sync) commited to bitbucket is not possibel
+
+! - logical NOT
+!false - true
+!!false - false
+truthy and falsy values: -0, null
+"hello" - true
+Boolean("hello") - true
+
+(first is ci environment and 2nd is local mahcine)
+retries: process.env.CI ? 2 : 1, 
+// ternary operator
+// retries: condition ? IfTrue : IfFalse
+
+
+workers --task shared among the workers-parallel execution
+
+workers:process.env.CI? 2 : undefined (playwright will allocate its own number of workers based on the project as well|| if 3 projects ,playwright will allocate 3 workers)
+
+
+reporter:
+7 types of reporter
+reporter: [['html'],['json'],['dotnet'],{open:never}]   =>if you do not want to the reporter to be opned whenever it gets failed 
+use:
+{
+  trace:'on first entry',  [can take mutiple options ||trace basically records all the actions along with the network data ||whenever we run in report we can see as traces]
+  headless:false
+}
+Assertions
+based on retry mechanism we can categorise assertions as
+1.auto retry assertions (unti time out is reached it will try) ||polling mechanism say every 0.5 sec
+  visiblity check
+  await expect(locator).tobehidden()
+  to see if the web element is containg the text
+  await expect(locator),containText("createLead")
+2.Non - retry assertions  (asyn if it retuns promise only it will be awaiting || if non re try assertions will return number or string , so test will fail)
+expect(value).tobe()
+
+Auto waiting option:
+

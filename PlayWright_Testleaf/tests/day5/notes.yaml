@@ -1,0 +1,55 @@
+css locators  ||cannot travese back
+ 1)id => #idname
+ 2)class =>.classname
+3) attribute =>
+ [type="value"]
+ 4)tag name=>
+ input[type="value"] 
+
+ 5)class value starts with a particular string
+ tagname[attribute^='value']  =>used during assertion
+ div[class^='investoryitem']
+ 
+ 6)class value ends with a particular string
+ tagname[attribute$='value']
+ div[class$='btn_inventory']
+
+ example: class='btn_bags_btn_inventory'
+          class='btn_bottle_btn_inventory'
+          class='btn_label_btn_inventory'
+
+  7)parent child => form>p
+  8)ancestor (select all the decendant alements)=> form p
+  9)adjacent sibling 
+       p[class='top']+p
+       p+p
+  10)general sibling =>all siblig below to the element
+  p~p
+
+11)contains -content as substring
+ tagname[attribute*='value'] 
+ 
+
+ filtering mechanism
+
+ nth(0) -locates the first match
+ page.locator(".slds-trucate").nth(0).click()
+ first element is the correct match
+  page.locator(".slds-trucate").first.click()
+  last element is the correct match
+    page.locator(".slds-trucate").last.click()
+
+await page.locator(".sdls_truncate").filter({hasText:"service"}).click() =>sdlc truncate class has a text service , other with same class is not the right match
+
+
+to retrieve any any text in ui => innertext =visible text retrieval
+                                  textContent  =text along with hiddent text needs tobe retrived
+
+
+
+                    Arrays in Js
+              creating array 
+              using array literal 
+              let userprofile ={'swamy','dinesh','meena'}
+              using array constructor
+              let userprofiles = new userprofiles 

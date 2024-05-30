@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { on } from 'events';
 
 /**
  * Read environment variables from file.
@@ -13,6 +14,9 @@ export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
+  /*timeout*/
+  timeout:40*3000,
+  globalTimeout :3600*1000,/*one hour*/
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -27,7 +31,9 @@ export default defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace:'on',
+    screenshot:'on',
+    video:'on',
     headless: false
   },
 
@@ -35,7 +41,8 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'] }, //testing against mobile view and desktop browser
+     // testMatch:"createLead.spec.ts"  //only this will get executed
     },
 
     // {

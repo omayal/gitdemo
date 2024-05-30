@@ -13,10 +13,12 @@ console.log(isjavaScriptintresting);
 var email
 console.log(email);
 console.log("type of email is " + typeof(email))
+console.log("type of new number is " + typeof(42))
 
 //null
 var surname =null;
 console.log(surname)
 console.log("type of email is " + typeof(surname)) //object is bug not fixed yet
+     
 
 

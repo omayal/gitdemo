@@ -1,0 +1,18 @@
+npm install -g typescript(global installation)
+npm install typescript(local installation) diff version
+tsc -v
+tsc --version
+tsc --init  -> to create a configuration file 
+
+if error comes 
+
+Vidya R Testleaf 5/19/2024 6:33 PM • 
+Open PowerShell as Administrator: Right-click on the PowerShell icon and choose "Run as Administrator" to ensure that you have the necessary permissions to change the execution policy.
+
+Check Current Execution Policy: Run the following command to check the current execution policy: Get-ExecutionPolicy
+
+Change Execution Policy: If the policy is set to "Restricted" or a more restrictive setting, you can change it. For example, to set the execution policy to "RemoteSigned" for the current user, run: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+Confirm Change: You may be prompted to confirm the change. Type 'Y' and press Enter.
+
+Retry the Command: After changing the execution policy, try running your tsc --version command again.
