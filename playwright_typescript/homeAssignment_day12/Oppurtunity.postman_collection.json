@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "3bd11358-67be-4fd0-9f6e-364a636cbcee",
+		"name": "Oppurtunity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33654040"
+	},
+	"item": [
+		{
+			"name": "Generate the access token Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var resp=pm.response.json();\r",
+							"var access=resp.access_token;\r",
+							"pm.globals.set(\"Access_Token\", access);\r",
+							"var Instance_url=resp.instance_url;\r",
+							"pm.globals.set(\"Instance_url\", Instance_url);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "3MVG9fe4g9fhX0E5hbGhek7Fp9ijXU30Q2eWnfUpEFvJ1mkEJCNcHmE01luXmSbgA73HgGRy5Ouj3c1IE2SLZ",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "0184AC8597512459A6BF96E1F46CB699EAEA1CEC34212BDDF383F28F99CCB376",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "majay3574@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Ajaymichael@8428",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://login.salesforce.com/services/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"login",
+						"salesforce",
+						"com"
+					],
+					"path": [
+						"services",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a New Oppurtunity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var resp=pm.response.json();\r",
+							"var id=resp.id\r",
+							"pm.globals.set(\"OPPID\", id);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Access_Token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Opportunity\",\r\n    \"stageName\": \"Value Proposition\",\r\n    \"closeDate\": \"2025-12-31\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qeagle8-dev-ed.develop.my.salesforce.com/services/data/v58.0/sobjects/Opportunity",
+					"protocol": "https",
+					"host": [
+						"qeagle8-dev-ed",
+						"develop",
+						"my",
+						"salesforce",
+						"com"
+					],
+					"path": [
+						"services",
+						"data",
+						"v58.0",
+						"sobjects",
+						"Opportunity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all the leads Oppurtunity",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Access_Token}}"
+					}
+				],
+				"url": {
+					"raw": "https://qeagle8-dev-ed.develop.my.salesforce.com/services/data/v58.0/sobjects/Opportunity",
+					"protocol": "https",
+					"host": [
+						"qeagle8-dev-ed",
+						"develop",
+						"my",
+						"salesforce",
+						"com"
+					],
+					"path": [
+						"services",
+						"data",
+						"v58.0",
+						"sobjects",
+						"Opportunity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a specific Oppurtunity",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Access_Token}}"
+					}
+				],
+				"url": {
+					"raw": "https://qeagle8-dev-ed.develop.my.salesforce.com/services/data/v58.0/sobjects/Opportunity/{{OPPID}}",
+					"protocol": "https",
+					"host": [
+						"qeagle8-dev-ed",
+						"develop",
+						"my",
+						"salesforce",
+						"com"
+					],
+					"path": [
+						"services",
+						"data",
+						"v58.0",
+						"sobjects",
+						"Opportunity",
+						"{{OPPID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update the lead Oppurtunity",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Access_Token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"name\": \"New Customer\",\r\n    \"stageName\": \"Prospecting\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qeagle8-dev-ed.develop.my.salesforce.com/services/data/v58.0/sobjects/Opportunity/{{OPPID}}",
+					"protocol": "https",
+					"host": [
+						"qeagle8-dev-ed",
+						"develop",
+						"my",
+						"salesforce",
+						"com"
+					],
+					"path": [
+						"services",
+						"data",
+						"v58.0",
+						"sobjects",
+						"Opportunity",
+						"{{OPPID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete the created request",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Access_Token}}"
+					}
+				],
+				"url": {
+					"raw": "https://qeagle8-dev-ed.develop.my.salesforce.com/services/data/v58.0/sobjects/Opportunity/{{OPPID}}",
+					"protocol": "https",
+					"host": [
+						"qeagle8-dev-ed",
+						"develop",
+						"my",
+						"salesforce",
+						"com"
+					],
+					"path": [
+						"services",
+						"data",
+						"v58.0",
+						"sobjects",
+						"Opportunity",
+						"{{OPPID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
